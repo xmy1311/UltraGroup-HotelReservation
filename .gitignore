@@ -1,0 +1,39 @@
+﻿# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Test Results
+TestResults/
+
+# Coverage
+coverage/
+*.coverage
+
+# Logs
+*.log
+
+# NuGet
+packages/
+
+# Publish
+publish/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Secrets
+appsettings.Development.json

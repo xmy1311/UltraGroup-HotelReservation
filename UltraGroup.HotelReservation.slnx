@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/docs/" />
+  <Folder Name="/src/">
+    <Project Path="src/HotelService.API/HotelService.API.csproj" />
+    <Project Path="src/HotelService.App/HotelService.App.csproj" />
+    <Project Path="src/HotelService.Domain/HotelService.Domain.csproj" />
+    <Project Path="src/HotelService.Infrastructure/HotelService.Infrastructure.csproj" />
+    <Project Path="src/Reservation.API/Reservation.API.csproj" />
+    <Project Path="src/Reservation.App/Reservation.App.csproj" />
+    <Project Path="src/Reservation.Domain/Reservation.Domain.csproj" />
+    <Project Path="src/Reservation.Infrastructure/Reservation.Infrastructure.csproj" />
+    <Project Path="src/UltraGroup.Common/UltraGroup.Common.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/HotelService.Tests/HotelService.Tests.csproj" />
+    <Project Path="test/Reservation.Tests/Reservation.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
