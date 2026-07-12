@@ -29,7 +29,7 @@ Both services follow a layered architecture:
 
 - .NET 10
 - ASP.NET Core Web API
-- Entity Framework Core
+- Entity Framework Core **(Code First)**
 - SQL Server
 - JWT Authentication
 - Swagger / OpenAPI
@@ -38,6 +38,21 @@ Both services follow a layered architecture:
 - Dependency Injection
 - Repository Pattern
 
+## Database
+
+The solution uses **Entity Framework Core Code First** with SQL Server.
+
+Database schema changes are managed through EF Core migrations.
+
+Create the database:
+
+```bash
+dotnet ef database update --project src/HotelService.Infrastructure --startup-project src/HotelService.API
+```
+
+```bash
+dotnet ef database update --project src/Reservation.Infrastructure --startup-project src/Reservation.API
+```
 ---
 
 ## Solution Structure
