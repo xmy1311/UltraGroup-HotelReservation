@@ -1,6 +1,6 @@
 # UltraGroup Hotel Reservation
 
-Microservices-based solution for hotel and reservation management built with **.NET 10**, **ASP.NET Core**, **Entity Framework Core**, **SQL Server**, and **JWT Authentication**.
+Solución basada en microservicios para la gestión de hoteles y reservas, desarrollada con **.NET 10**, **ASP.NET Core**, **Entity Framework Core**, **SQL Server**, and **JWT Authentication**.
 
 ## Architecture
 
@@ -151,26 +151,29 @@ Authorization: Bearer {token}
 
 ---
 
-## Design Decisions
+## Decisiones de Diseño
 
-- Clean separation between Domain, Application, Infrastructure and API.
-- Repository Pattern for persistence.
-- Entity Framework Core for data access.
-- DTOs for communication between layers.
-- Unit tests using xUnit and Moq.
-- Shared classes located in the UltraGroup.Common project.
+- Arquitectura por capas (Domain, Application, Infrastructure y API).
+- Implementación del patrón **Repository** para el acceso a datos.
+- Uso de **Entity Framework Core (Code First)** para la persistencia.
+- Comunicación entre capas mediante **DTOs**.
+- Autenticación basada en **JWT** para proteger los endpoints.
+- Pruebas unitarias implementadas con **xUnit** y **Moq**.
+- Componentes compartidos centralizados en el proyecto **UltraGroup.Common**.
+- Separación de responsabilidades siguiendo principios de **Clean Architecture**.
 
 ---
 
-## Future Improvements
+## Mejoras Futuras
 
-- Email provider integration.
-- Docker support.
-- API Gateway.
-- Distributed logging.
-- Refresh Tokens.
-- Role-based authorization.
-- CI/CD pipeline.
+- Integración con un proveedor de correo electrónico (SMTP, SendGrid, etc.).
+- Contenerización de los microservicios mediante **Docker**.
+- Implementación de un **API Gateway** para centralizar el acceso a los microservicios.
+- Registro y monitoreo distribuido (Logging y Tracing).
+- Implementación de **Refresh Tokens** para mejorar la gestión de autenticación.
+- Autorización basada en roles y permisos (**Role-Based Authorization**).
+- Implementación de un pipeline de **CI/CD** para automatizar compilación, pruebas y despliegues.
+- Incorporación de validaciones más robustas y manejo centralizado de excepciones.
 
 ---
 
