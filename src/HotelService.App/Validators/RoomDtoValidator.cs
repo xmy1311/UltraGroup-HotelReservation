@@ -12,7 +12,7 @@ namespace HotelService.App.Validators
         {
         RuleFor(r=>r.HotelId)
             .NotEmpty()
-            .WithMessage("HotelId is required.");
+            .WithMessage("HotelId es requerido.");
 
 
             RuleFor(r => r.Number)

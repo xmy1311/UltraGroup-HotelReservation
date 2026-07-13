@@ -22,7 +22,7 @@ namespace HotelService.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("HotelService.Domain.Entities.Hotel", b =>
+            modelBuilder.Entity("HotelService.Domain.Entities.HotelEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,11 +59,14 @@ namespace HotelService.Infrastructure.Migrations
                     b.ToTable("Hotels", (string)null);
                 });
 
-            modelBuilder.Entity("HotelService.Domain.Entities.Room", b =>
+            modelBuilder.Entity("HotelService.Domain.Entities.RoomEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -102,13 +105,20 @@ namespace HotelService.Infrastructure.Migrations
                     b.ToTable("Rooms", (string)null);
                 });
 
-            modelBuilder.Entity("HotelService.Domain.Entities.Room", b =>
+            modelBuilder.Entity("HotelService.Domain.Entities.RoomEntity", b =>
                 {
-                    b.HasOne("HotelService.Domain.Entities.Hotel", null)
-                        .WithMany()
+                    b.HasOne("HotelService.Domain.Entities.HotelEntity", "Hotel")
+                        .WithMany("Rooms")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Hotel");
+                });
+
+            modelBuilder.Entity("HotelService.Domain.Entities.HotelEntity", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }

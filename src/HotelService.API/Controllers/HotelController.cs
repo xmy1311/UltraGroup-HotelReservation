@@ -24,7 +24,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.Created,
-                Message = "Hotel created successfully",
+                Message = "Hotel creado",
                 Data = hotelResponse
             });
         }
@@ -38,7 +38,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Hotels retrieved successfully",
+                Message = "Consulta realizada con exito",
                 Data = hotelsFiterResponse
             });
         }
@@ -52,7 +52,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Hotel retrieved successfully",
+                Message = "Consulta realizada con exito",
                 Data = hotelResponse
             });
         }
@@ -67,7 +67,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.Created,
-                Message = "Hotel updated successfully",
+                Message = "Hotel actualizado",
                 Data = HotelResponse
             });
         }
@@ -80,7 +80,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Hotel disabled successfully",
+                Message = "Hotel deshabilitado",
                 Data = null
             });
         }
@@ -92,7 +92,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Hotel disabled successfully",
+                Message = "Hotel habilitado",
                 Data = null
             });
         }

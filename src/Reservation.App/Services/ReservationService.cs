@@ -27,7 +27,7 @@ namespace Reservation.App.Services
                                 reservationRequestDto.CheckIn,
                                 reservationRequestDto.CheckOut);
             if(!validateRoom)
-                throw new InvalidOperationException("The room is not available for the selected dates.");
+                throw new InvalidOperationException("La hibatación no se encuentra disponible para esas fechas.");
 
             var reservation = new ReservationEntity(reservationRequestDto.RoomId,
                                                     reservationRequestDto.HotelId,
@@ -67,7 +67,7 @@ namespace Reservation.App.Services
                 "agent@ultragroup.com"
                 );
 
-            _logger.LogInformation("Reservation created id:{reservationId}", reservation.Id);
+            _logger.LogInformation("Reserva creada id:{reservationId}", reservation.Id);
 
             return MapToResponse(reservation);
         }
@@ -76,7 +76,7 @@ namespace Reservation.App.Services
         {
             var reservations = await _reservationRepository.GetAllReservationsAsync();
 
-            _logger.LogInformation("Reservations retrieved succesfully");
+            _logger.LogInformation("Consulta realizada con exito");
 
             return reservations.Select(MapToResponse);
         }
@@ -87,7 +87,7 @@ namespace Reservation.App.Services
                              ?? throw new NotImplementedException();
 
          
-            _logger.LogInformation($"Reservation id: {reservationId}");
+            _logger.LogInformation($"Reserva id: {reservationId}");
 
             return MapToResponse(reservation);
         }

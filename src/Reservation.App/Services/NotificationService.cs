@@ -14,13 +14,13 @@ namespace Reservation.App.Services
           
                 _logger.LogInformation(
                     """    
-                Reservation confirmation email sent successfully.
-                ReservationId: {ReservationId}
-                Guest:
-                Name: {GuestName}
-                Email: {GuestEmail}
-                Agent:
-                Email: {AgentEmail}
+                Reserva confirmada.
+                Id: {ReservationId}
+                Usuario:
+                Nombre: {GuestName}
+                Correo: {GuestEmail}
+                Agente:
+                Correo: {AgentEmail}
                 """,reservationId,guestName,guestEmail, agentEmail);
 
                 return Task.CompletedTask;

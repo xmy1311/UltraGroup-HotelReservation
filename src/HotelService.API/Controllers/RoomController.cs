@@ -21,7 +21,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.Created,
-                Message = "Room created successfully",
+                Message = "Habitación creada",
                 Data = roomResponse
             });
         
@@ -36,12 +36,12 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Room retrieved successfully",
+                Message = "Consulta realizada con exito",
                 Data = roomResponse
             });
         }
 
-        [HttpGet]
+        [HttpGet("hotel/{hotelId:guid}")]
         public async Task<IActionResult> GetRoomsByHotelId(Guid hotelId)
         {
             var roomsResponse = await _roomServices.GetByHotelAsync(hotelId);
@@ -50,7 +50,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Rooms retrieved successfully",
+                Message = "Consulta realizada con exito",
                 Data = roomsResponse
             });
         }
@@ -66,12 +66,12 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Room updated successfully",
+                Message = "Habitación actualizada",
                 Data = roomResponse
             });
         }
 
-        [HttpGet]
+        [HttpGet("available")]
         public async Task<IActionResult> GetAvailableRoom([FromQuery] string city,
             [FromQuery] int capacity)
         {
@@ -83,7 +83,7 @@ namespace HotelService.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "Room updated successfully",
+                Message = "Consulta realizada con exito",
                 Data = rooms
             });
         }

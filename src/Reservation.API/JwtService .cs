@@ -9,13 +9,9 @@ using UltraGroup.Common.Security.DTOs;
 
 namespace Reservation.API
 {
-    public class JwtService : IJwtService
+    public class JwtService(IOptions<JwtSettings> jwoptions) : IJwtService
     {
-        private readonly JwtSettings _jwtSettings;
-        public JwtService(IOptions<JwtSettings> jwoptions )
-        {
-            _jwtSettings= jwoptions.Value;
-        }
+        private readonly JwtSettings _jwtSettings = jwoptions.Value;
 
         public LoginResponseDto GenerateToken(string userName)
         {

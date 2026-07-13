@@ -2,14 +2,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Reservation.API;
+using Reservation.API.Middlewares;
 using Reservation.App.Interfaces;
 using Reservation.App.Services;
+using Reservation.App.Validators;
 using Reservation.Domain.Interfaces;
 using Reservation.Infrastructure.Clients;
 using Reservation.Infrastructure.Persistence;
 using Reservation.Infrastructure.Repositories;
 using System.Text;
 using UltraGroup.Common.Security;
+using FluentValidation;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +60,11 @@ builder.Services.AddScoped<IReservationRepository, ReservationRespository>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 
+// Add FluentValidation
+builder.Services.AddValidatorsFromAssemblyContaining<ReservationDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<GuestDtoValidator>();
+
+
 builder.Services.AddHttpClient<IHotelClient, HotelClient>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["Services:HotelService"]!);
@@ -71,6 +80,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -25,7 +25,7 @@ namespace HotelService.App.Services
 
             await _roomRepository.AddAsync(newRoom);
 
-            _logger.LogInformation("Room created successfully with ID: {RoomId}", newRoom.Id);
+            _logger.LogInformation("Habitación creada con Id: {RoomId}", newRoom.Id);
 
             return MapToResponse(newRoom);
         }
@@ -51,7 +51,7 @@ namespace HotelService.App.Services
         public async Task<RoomResponseDto?> GetByIdAsync(Guid id)
         {
             var room = await _roomRepository.GetByIdAsync(id)
-                       ?? throw new KeyNotFoundException($"Room with ID {id} not found.");
+                       ?? throw new KeyNotFoundException($"Habitación con Id {id} no existe.");
 
             return MapToResponse(room);
             
@@ -67,7 +67,7 @@ namespace HotelService.App.Services
         public async Task<bool> UpdateAsync(Guid id,RoomRequestDto roomDto)
         {
            var room = _roomRepository.GetByIdAsync(id).Result
-                      ?? throw new KeyNotFoundException($"Room with ID {id} not found.");
+                      ?? throw new KeyNotFoundException($"Habitación con Id {id} no existe.");
             room.Update(roomDto.Number,
                         roomDto.Type,
                         roomDto.Price,
@@ -77,7 +77,7 @@ namespace HotelService.App.Services
 
             _roomRepository.UpdateAsync(room).Wait();
 
-            _logger.LogInformation("Room updated successfully with ID: {RoomId}", room.Id);
+            _logger.LogInformation("Habitacón actualizada con Id: {RoomId}", room.Id);
 
 
             return true;

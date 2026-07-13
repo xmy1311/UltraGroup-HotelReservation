@@ -5,7 +5,7 @@ using System.Net;
 using UltraGroup.Common.Responses;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Hotel.API.Controllers
+namespace Reservation.API.Controllers
 {
     [Authorize]
     [ApiController]
@@ -26,7 +26,7 @@ namespace Hotel.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.Created,
-                Message = "Hotel created",
+                Message = "Hotel creado",
                 Data= reservation
             });
 
@@ -41,7 +41,7 @@ namespace Hotel.API.Controllers
             {
                 Success= true,
                 StatusCode= HttpStatusCode.OK,
-                Message="get reservation succes",
+                Message="consulta realizada con exito",
                 Data=reservation
             });
         }
@@ -56,7 +56,7 @@ namespace Hotel.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "get reservation succes",
+                Message = "Consulta realizada con exito",
                 Data = reservations
             });
         }
@@ -70,7 +70,7 @@ namespace Hotel.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "get reservation succes",
+                Message = "Reserva cancelada realizada con exito",
                 Data = true
             });
         }
@@ -89,7 +89,7 @@ namespace Hotel.API.Controllers
             {
                 Success = true,
                 StatusCode = HttpStatusCode.OK,
-                Message = "get reservation succes",
+                Message = "Consulta realizada con exito",
                 Data = rooms
             });
         }

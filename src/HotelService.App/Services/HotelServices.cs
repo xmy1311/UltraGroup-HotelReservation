@@ -22,7 +22,7 @@ namespace HotelService.App.Services
 
             await _hotelRepository.CreateHotelAsync(hotel);
 
-            _logger.LogInformation("Hotel created successfully with ID: {HotelId}", hotel.Id);
+            _logger.LogInformation("Hotel creado ID: {HotelId}", hotel.Id);
 
 
             return new HotelResponseDto
@@ -39,25 +39,25 @@ namespace HotelService.App.Services
         public async Task DisabledAsync(Guid id)
         {
             var hotel = _hotelRepository.GetHotelByIdAsync(id).Result 
-                         ?? throw new KeyNotFoundException($"Hotel with ID {id} not found.");
+                         ?? throw new KeyNotFoundException($"Hotel con Id {id} no existe.");
             hotel.Disable();
 
             await _hotelRepository.UpdateHotelAsync(hotel);
 
-            _logger.LogInformation("Hotel disabled successfully with ID: {HotelId}", hotel.Id);
+            _logger.LogInformation("Hotel deshabilitado con Id: {HotelId}", hotel.Id);
         }
 
         public async Task EnableAsync(Guid id)
         {
             var hotel = _hotelRepository.GetHotelByIdAsync(id).Result 
-                         ?? throw new KeyNotFoundException($"Hotel with ID {id} not found.");
+                         ?? throw new KeyNotFoundException($"Hotel con Id {id}  no existe.");
 
             hotel.Enable();
 
             await _hotelRepository.UpdateHotelAsync(hotel);
 
 
-            _logger.LogInformation("Hotel enabled successfully with ID: {HotelId}", hotel.Id);
+            _logger.LogInformation("Hotel habilitado with Id: {HotelId}", hotel.Id);
 
         }
 
@@ -70,7 +70,7 @@ namespace HotelService.App.Services
                                                             hotelFilterDto.IsEnabled);
 
 
-            _logger.LogInformation("Hotels get successfully");
+            _logger.LogInformation("Hoteles consultados");
 
             return hotels.Select(h => new HotelResponseDto
             {
@@ -93,7 +93,7 @@ namespace HotelService.App.Services
         public async Task<HotelResponseDto?> GetHotelByIdAsync(Guid id)
         {
             var hotel = await _hotelRepository.GetHotelByIdAsync(id) 
-                       ?? throw new KeyNotFoundException($"Hotel with ID {id} not found.");
+                       ?? throw new KeyNotFoundException($"Hotel con Id {id}no existe.");
 
             return new HotelResponseDto
             {
@@ -112,9 +112,9 @@ namespace HotelService.App.Services
         public async Task<HotelResponseDto> UpdateAsync(Guid id, HotelRequestDto hotelDto)
         {
             var hotel = await _hotelRepository.GetHotelByIdAsync(id)
-                        ?? throw new Exception($"Hotel with ID {id} not found.");
+                        ?? throw new Exception($"Hotel con Id {id} no existe.");
 
-            _logger.LogInformation("Hotel find with ID: {HotelId}", hotel.Id);
+            _logger.LogInformation("Hotel encontrado con Id: {HotelId}", hotel.Id);
 
 
             hotel.Update(hotelDto.HotelName,
