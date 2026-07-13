@@ -25,7 +25,6 @@ Responsable de la administración de reservas.
 **Funcionalidades principales:**
 
 - Gestión de reservas.
-- Registro de huéspedes.
 - Confirmación de reservas.
 - Notificación de confirmación.
 - Autenticación mediante JWT.
@@ -171,6 +170,41 @@ Los endpoints protegidos requieren el siguiente encabezado HTTP:
 ```
 Authorization: Bearer {token}
 ```
+---
+Colección de Postman
+
+Para facilitar las pruebas de la API, el proyecto incluye una colección de Postman con los principales flujos del sistema.
+
+Archivos incluidos
+Postman/
+│
+├── UltraGroup Hotel Reservation.postman_collection.json
+└── UltraGroup Local.postman_environment.json
+
+Configuración
+
+1. Importar la colección de Postman.
+2. Importar el ambiente UltraGroup Local.
+Seleccionar el ambiente antes de ejecutar las peticiones.
+3. Verificar que ambos microservicios estén en ejecución: HotelService.API, Reservation.API
+   
+Variables del ambiente
+
+hotelUrl:	URL del HotelService
+reservationUrl:	URL del ReservationService
+token:	Token JWT obtenido después del login
+hotelId:	Id del hotel creado
+roomId:	Id de la habitación creada
+reservationId:	Id de la reserva creada
+
+Flujo recomendado de pruebas
+Login
+Crear Hotel
+Crear Habitación
+Consultar Habitaciones Disponibles
+Crear Reserva
+Consultar Reserva
+Cancelar Reserva
 
 ---
 
