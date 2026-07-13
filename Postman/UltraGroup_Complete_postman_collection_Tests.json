@@ -1,0 +1,327 @@
+{
+  "info": {
+    "name": "UltraGroup Complete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Auth/login"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"admin\",\n  \"password\": \"Admin123*\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotel",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelName\": \"Hotel Medellín Plaza\",\n  \"address\": \"Cra 45 #10-20\",\n  \"city\": \"Medellín\",\n  \"description\": \"Hotel cinco estrellas\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel?Name=&City=&IsEnabled=true"
+            }
+          }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel/{{hotelId}}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel/{{hotelId}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelName\": \"Hotel Medellín Plaza\",\n  \"address\": \"Cra 45 #10-20\",\n  \"city\": \"Medellín\",\n  \"description\": \"Hotel cinco estrellas\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Disable",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel/disable/{{hotelId}}"
+            }
+          }
+        },
+        {
+          "name": "Enable",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Hotel/enabled/{{hotelId}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Room",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Room"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"hotelId\": \"{{hotelId}}\",\n  \"number\": \"101\",\n  \"type\": 1,\n  \"price\": 250000,\n  \"taxes\": 47500,\n  \"location\": \"Piso 1\",\n  \"capacity\": 2\n}"
+            }
+          }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Room/{{roomId}}"
+            }
+          }
+        },
+        {
+          "name": "By Hotel",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Room/hotel/{{hotelId}}"
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Room/{{roomId}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"hotelId\": \"{{hotelId}}\",\n  \"number\": \"101\",\n  \"type\": 1,\n  \"price\": 250000,\n  \"taxes\": 47500,\n  \"location\": \"Piso 1\",\n  \"capacity\": 2\n}"
+            }
+          }
+        },
+        {
+          "name": "Available",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{hotelUrl}}/api/Room/available?city=Medellín&capacity=2"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reservation",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Reservation"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelId\": \"{{hotelId}}\",\n  \"roomId\": \"{{roomId}}\",\n  \"checkIn\": \"2026-08-01T15:00:00\",\n  \"checkOut\": \"2026-08-05T12:00:00\",\n  \"numberOfGuests\": 2,\n  \"emergencyContactName\": \"Juan Pérez\",\n  \"emergencyContactPhone\": \"3009998888\",\n  \"guests\": [\n    {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"firstName\": \"Ana\",\n      \"lastName\": \"Gómez\",\n      \"email\": \"ana@email.com\",\n      \"birthDate\": \"1995-05-20T00:00:00\",\n      \"gender\": 1,\n      \"documentType\": 1,\n      \"documentNumber\": \"123456789\",\n      \"phoneNumber\": \"3001234567\",\n      \"createdAt\": \"2026-01-01T00:00:00\",\n      \"updatedAt\": \"2026-01-01T00:00:00\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Reservation/{{reservationId}}"
+            }
+          }
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Reservation/all"
+            }
+          }
+        },
+        {
+          "name": "Available",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Reservation/available?City=Medellín&CheckIn=2026-08-01T15:00:00&CheckOut=2026-08-05T12:00:00&NumberOfGuests=2"
+            }
+          }
+        },
+        {
+          "name": "Cancel",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reservationUrl}}/api/Reservation/{{reservationId}}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
