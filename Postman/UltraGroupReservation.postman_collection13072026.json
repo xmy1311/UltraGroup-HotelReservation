@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "UltraGroup Hotel Reservation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{reservationUrl}}/api/Auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\":\"admin\",\n  \"password\":\"123456\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotels",
+      "item": [
+        {
+          "name": "Create Hotel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{hotelUrl}}/api/Hotel",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"Hotel Medellín\",\n  \"city\":\"Medellín\",\n  \"address\":\"Cra 45 #50-25\",\n  \"description\":\"Hotel para pruebas\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rooms",
+      "item": [
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{hotelUrl}}/api/Room",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelId\":\"{{hotelId}}\",\n  \"number\":\"101\",\n  \"type\":1,\n  \"price\":250000,\n  \"taxes\":47500,\n  \"location\":\"Primer Piso\",\n  \"capacity\":2\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "item": [
+        {
+          "name": "Available Rooms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{reservationUrl}}/api/Reservation?City=Medellín&CheckIn=2026-07-20&CheckOut=2026-07-22&NumberOfGuests=2"
+          }
+        },
+        {
+          "name": "Create Reservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{reservationUrl}}/api/Reservation",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelId\":\"{{hotelId}}\",\n  \"roomId\":\"{{roomId}}\",\n  \"checkIn\":\"2026-07-20T14:00:00\",\n  \"checkOut\":\"2026-07-22T12:00:00\",\n  \"numberOfGuests\":2,\n  \"emergencyContactName\":\"Pedro Gómez\",\n  \"emergencyContactPhone\":\"3001234567\",\n  \"guests\":[{\n    \"name\":\"Juan\",\n    \"lastName\":\"Pérez\",\n    \"birthDate\":\"1995-01-15\",\n    \"gender\":1,\n    \"documentType\":1,\n    \"documentNumber\":\"123456789\",\n    \"email\":\"juan@test.com\",\n    \"phoneNumber\":\"3001112233\"\n  }]\n}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "hotelUrl",
+      "value": "https://localhost:7001"
+    },
+    {
+      "key": "reservationUrl",
+      "value": "https://localhost:7029"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "hotelId",
+      "value": ""
+    },
+    {
+      "key": "roomId",
+      "value": ""
+    },
+    {
+      "key": "reservationId",
+      "value": ""
+    }
+  ]
+}
